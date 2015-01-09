@@ -9,7 +9,3 @@ my_data = np.loadtxt(fname = 'some_data.csv', delimiter=',')
 
 
 
-
-print "let me show you what I understood:"
-print my_data
-
