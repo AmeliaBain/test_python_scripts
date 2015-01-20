@@ -16,29 +16,61 @@ print f
 
 lines = f.readlines()
 
-print "these are the lines in the file"
-print lines
 
-line = lines[0]
-
-split_line = lines[0].split(',')
-print "split line is: "
-print split_line
-
-
-# find the number of elements in the line
-n_elements_in_line = len(split_line)
-
-
-# start an empty list. 
-# what happens if you don't start with an empty list?
+# start an empty list.
 line_nums = []
 
-# look through the line, getting the elements
-for element in split_line:
-  num = int(element)
-  print num
-  line_nums.append(num)
+
+# now we try to get all of the data
+for line in lines:
+
+  # split this line
+  split_line = line.split(',')
   
-# the line numbers are:  
+  # initiate a list for just this line
+  this_line_nums = []
+  
+  for element in split_line:
+    num = int(element)
+    this_line_nums.append(num)
+    
+  # now append this line to line nums
+  line_nums.append(this_line_nums)
+  
+# the data are
 print line_nums
+
+#get the median of the 2nd line
+# median is a function within numpy, so we need to tell python we want the numpy median function
+median = np.median(line_nums[1])
+print median
+
+
+#get the mean of the 3rd line
+# mean is a function within numpy, so we need to tell python we want the numpy median function
+mean = np.mean(line_nums[2])
+print mean
+
+
+# your data is in a python list. 
+# Numpy arrays are frequently better for numerics (they have been designed for speed).
+# Convert some of your data to a numpy array
+first_line_numpy_array = np.asarray(line_nums[0])
+
+#
+# ~~~~~~~~~~TASK~~~~~~~~~~~~~
+#
+# What is the difference in appearance of arrays and lists when printed to screen?
+# Note, if you want to do Matlab-like matrix manipulation you'll have to convert to array
+
+# print to screen, showing how python will tell you the difference
+print "list:"
+print line_nums[0]
+
+print "array: "
+print first_line_numpy_array
+
+#
+# ~~~~~~~~~~TASK~~~~~~~~~~~~~
+#
+# Try to convert all of the data (line_nums) to array. What happens?
